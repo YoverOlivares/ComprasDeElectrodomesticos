@@ -1,6 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="Producto" />
+
+        <TextView
+            android:id="@+id/tv_product_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="S/. 0.00" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btn_decrease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/tv_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="18sp"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/btn_increase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Adicionales:"
+            android:textStyle="bold"/>
+
+        <CheckBox
+            android:id="@+id/cb_installation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Instalación a domicilio (+S/. 50.00)" />
+
+        <CheckBox
+            android:id="@+id/cb_maintenance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mantenimiento trimestral (+S/. 30.00)" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Descuento:"
+            android:textStyle="bold"/>
+
+        <RadioGroup
+            android:id="@+id/rg_discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rb_store_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tarjeta de la tienda (10%)" />
+
+            <RadioButton
+                android:id="@+id/rb_no_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sin tarjeta (5%)" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_generate_gift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="OBSEQUIO" />
+
+        <TextView
+            android:id="@+id/tv_gift_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:text="Regalo Generado" />
+
+        <Button
+            android:id="@+id/btn_buy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="COMPRAR" />
+
+    </LinearLayout>
+</ScrollView>
