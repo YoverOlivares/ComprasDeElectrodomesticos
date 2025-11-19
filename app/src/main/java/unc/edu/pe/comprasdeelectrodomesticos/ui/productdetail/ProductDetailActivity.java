@@ -31,8 +31,6 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void setupInitialData() {
-        // Recuperar datos del Intent y reconstruir el objeto Product
-        // (En una app más compleja, buscaríamos por ID en base de datos local)
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String id = extras.getString("p_id");
@@ -46,6 +44,12 @@ public class ProductDetailActivity extends AppCompatActivity {
             // Setear UI inicial
             binding.tvProductName.setText(name);
             binding.tvProductPrice.setText("S/. " + price);
+
+            // Cargar imagen
+            int imageResId = getResources().getIdentifier(img, "drawable", getPackageName());
+            if (imageResId != 0) {
+                binding.ivProductDetailImage.setImageResource(imageResId);
+            }
         }
     }
 
@@ -85,10 +89,17 @@ public class ProductDetailActivity extends AppCompatActivity {
         // Observar Regalo Generado
         viewModel.getGift().observe(this, gift -> {
             if (gift != null) {
+                // Mostrar el TextView con el nombre
                 binding.tvGiftName.setVisibility(View.VISIBLE);
                 binding.tvGiftName.setText("¡Ganaste: " + gift.getName() + "!");
-                // Aquí podrías setear la imagen si tuvieras el ImageView configurado
-                // binding.imgGift.setImageResource(gift.getImageResourceId());
+
+                // Mostrar el ImageView con la imagen del regalo
+                binding.ivGiftImage.setVisibility(View.VISIBLE);
+                binding.ivGiftImage.setImageResource(gift.getImageResourceId());
+            } else {
+                // Ocultar si no hay regalo
+                binding.tvGiftName.setVisibility(View.GONE);
+                binding.ivGiftImage.setVisibility(View.GONE);
             }
         });
 

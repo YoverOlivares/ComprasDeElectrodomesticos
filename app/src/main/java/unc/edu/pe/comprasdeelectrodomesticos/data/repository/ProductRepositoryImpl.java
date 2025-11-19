@@ -64,11 +64,12 @@ public class ProductRepositoryImpl implements ProductRepository {
     private List<Product> createMockProducts() {
         List<Product> products = new ArrayList<>();
 
-        products.add(new Product("lavadora", "Lavadora LG 18kg", 1299.00, "url_lavadora"));
-        products.add(new Product("refrigeradora", "Refrigeradora Samsung 500L", 2499.00, "url_refrigeradora"));
-        products.add(new Product("cocina", "Cocina Indurama 6 hornillas", 899.00, "url_cocina"));
-        products.add(new Product("rapdoucha", "Rap Ducha Eléctrica", 199.00, "url_rapdoucha"));
-        products.add(new Product("microondas", "Microondas LG 42L", 549.00, "url_microondas"));
+        // Usar el ID del producto como referencia al drawable
+        products.add(new Product("lavadora", "Lavadora LG 18kg", 1299.00, "product_lavadora"));
+        products.add(new Product("refrigeradora", "Refrigeradora Samsung 500L", 2499.00, "product_refrigeradora"));
+        products.add(new Product("cocina", "Cocina Indurama 6 hornillas", 899.00, "product_cocina"));
+        products.add(new Product("licuadora", "Licuadora Oster", 549.00, "product_licuadora"));
+        products.add(new Product("microondas", "Microondas LG 42L", 549.00, "product_microondas"));
 
         return products;
     }

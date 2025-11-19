@@ -53,12 +53,32 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             this.binding = binding;
         }
 
+        // Método para enlazar datos del producto_________
         public void bind(Product product) {
             binding.tvProductName.setText(product.getName());
             binding.tvProductPrice.setText("S/. " + product.getPrice());
 
+            // Cargar imagen desde drawable
+            int imageResId = getDrawableResourceId(product.getImageUrl());
+            if (imageResId != 0) {
+                binding.ivProductImage.setImageResource(imageResId);
+            } else {
+                // Imagen por defecto si no se encuentra
+                binding.ivProductImage.setImageResource(android.R.drawable.ic_menu_gallery);
+            }
+
             // Click listener en toda la tarjeta
             binding.getRoot().setOnClickListener(v -> listener.onProductClick(product));
         }
+        private int getDrawableResourceId(String drawableName) {
+            try {
+                return binding.getRoot().getContext().getResources()
+                        .getIdentifier(drawableName, "drawable",
+                                binding.getRoot().getContext().getPackageName());
+            } catch (Exception e) {
+                return 0;
+            }
+        }
+
     }
 }
