@@ -1,10 +1,12 @@
 package unc.edu.pe.comprasdeelectrodomesticos.ui.summary;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import unc.edu.pe.comprasdeelectrodomesticos.databinding.ActivitySummaryBinding;
 import unc.edu.pe.comprasdeelectrodomesticos.domain.model.PurchaseSummary;
+import unc.edu.pe.comprasdeelectrodomesticos.ui.productlist.MainActivity;
 import unc.edu.pe.comprasdeelectrodomesticos.util.Constants;
 
 public class SummaryActivity extends AppCompatActivity {
@@ -27,6 +29,9 @@ public class SummaryActivity extends AppCompatActivity {
             viewModel.setSummary(summary);
             displayData(summary);
         }
+
+        // IMPORTANTE: Llamar al método para configurar el botón
+        setupBackButton();
     }
 
     private void displayData(PurchaseSummary data) {
@@ -45,5 +50,14 @@ public class SummaryActivity extends AppCompatActivity {
         binding.tvGiftName.setText(data.getGiftName());
 
         binding.tvTotalAmount.setText("S/. " + String.format("%.2f", data.getTotal()));
+    }
+
+    private void setupBackButton() {
+        binding.btnBack.setOnClickListener(v -> {
+            // Cerrar todas las actividades y volver al inicio
+            Intent intent = new Intent(SummaryActivity.this, MainActivity.class);
+            startActivity(intent);
+            finishAffinity(); // Cierra todas las actividades del stack
+        });
     }
 }

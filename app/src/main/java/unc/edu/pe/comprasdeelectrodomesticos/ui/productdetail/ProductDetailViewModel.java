@@ -37,6 +37,7 @@ public class ProductDetailViewModel extends ViewModel {
         // Inicializar AddOns disponibles
         selectedAddOns.add(new AddOn("Instalación", Constants.PRICE_INSTALLATION));
         selectedAddOns.add(new AddOn("Mantenimiento", Constants.PRICE_MAINTENANCE));
+        selectedAddOns.add(new AddOn("Seguro", Constants.PRICE_INSURANCE));
     }
 
     public void setProduct(Product product) {
@@ -68,6 +69,12 @@ public class ProductDetailViewModel extends ViewModel {
         // Asumimos índice 1 es mantenimiento
         selectedAddOns.get(1).setSelected(isSelected);
     }
+
+    public void setInsuranceSelected(boolean isSelected) {
+        // Asumimos índice 2 es seguro
+        selectedAddOns.get(2).setSelected(isSelected);
+    }
+
 
     // --- Lógica de Descuento ---
     public void setDiscountType(String type) {

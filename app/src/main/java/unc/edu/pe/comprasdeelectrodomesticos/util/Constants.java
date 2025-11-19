@@ -8,6 +8,8 @@ public class Constants {
     // Prices for Add-ons
     public static final double PRICE_INSTALLATION = 50.00;
     public static final double PRICE_MAINTENANCE = 30.00;
+    public static final double PRICE_INSURANCE = 10.00;
+
 
     // Discount Types
     public static final String DISCOUNT_TYPE_STORE_CARD = "Tarjeta Tienda";

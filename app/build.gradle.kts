@@ -58,4 +58,8 @@ dependencies {
 
     // 3. Glide (Para cargar imágenes desde URL)
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    // DEPENDENCIA  PRA MEJORAR LA INTERFAZ
+    // (Opcional) Para animaciones vectoriales espectaculares
+    implementation("com.airbnb.android:lottie:6.1.0")
 }
