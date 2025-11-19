@@ -65,6 +65,9 @@ public class ProductDetailActivity extends AppCompatActivity {
         binding.cbMaintenance.setOnCheckedChangeListener((buttonView, isChecked) ->
                 viewModel.setMaintenanceSelected(isChecked));
 
+        binding.cbSeguro.setOnCheckedChangeListener((buttonView, isChecked) ->
+                viewModel.setInsuranceSelected(isChecked));
+
         // RadioGroup Descuento
         binding.rgDiscount.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == binding.rbStoreCard.getId()) {

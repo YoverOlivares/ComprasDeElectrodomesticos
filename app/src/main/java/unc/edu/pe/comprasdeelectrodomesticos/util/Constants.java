@@ -6,9 +6,9 @@ public class Constants {
     public static final String EXTRA_SUMMARY = "extra_summary";
 
     // Prices for Add-ons
-    public static final double PRICE_INSTALLATION = 50.00;
-    public static final double PRICE_MAINTENANCE = 30.00;
-    public static final double PRICE_INSURANCE = 10.00;
+    public static final double PERCENT_INSTALLATION = 0.05;
+    public static final double PERCENT_MAINTENANCE = 0.10;
+    public static final double PERCENT_INSURANCE = 0.07;
 
 
     // Discount Types

@@ -30,14 +30,19 @@ public class ProductDetailViewModel extends ViewModel {
     private final GenerateGiftUseCase generateGiftUseCase;
     private final CalculatePurchaseUseCase calculatePurchaseUseCase;
 
+    // Nombres constantes para evitar errores de escritura (Best Practice)
+    private static final String NAME_INSTALLATION = "Instalación";
+    private static final String NAME_MAINTENANCE = "Mantenimiento";
+    private static final String NAME_INSURANCE = "Seguro";
+
     public ProductDetailViewModel() {
         generateGiftUseCase = new GenerateGiftUseCase();
         calculatePurchaseUseCase = new CalculatePurchaseUseCase();
 
-        // Inicializar AddOns disponibles
-        selectedAddOns.add(new AddOn("Instalación", Constants.PRICE_INSTALLATION));
-        selectedAddOns.add(new AddOn("Mantenimiento", Constants.PRICE_MAINTENANCE));
-        selectedAddOns.add(new AddOn("Seguro", Constants.PRICE_INSURANCE));
+        // Inicializar AddOns usando las constantes (Mismo orden o diferente, ya no importa)
+        selectedAddOns.add(new AddOn(NAME_INSTALLATION, Constants.PERCENT_INSTALLATION));
+        selectedAddOns.add(new AddOn(NAME_MAINTENANCE, Constants.PERCENT_MAINTENANCE));
+        selectedAddOns.add(new AddOn(NAME_INSURANCE, Constants.PERCENT_INSURANCE));
     }
 
     public void setProduct(Product product) {
@@ -59,20 +64,28 @@ public class ProductDetailViewModel extends ViewModel {
         }
     }
 
-    // --- Lógica de Adicionales ---
+    // --- Lógica de Adicionales MEJORADA ---
+
+    // Método auxiliar seguro: Busca por nombre en lugar de índice
+    private void updateAddOnStatus(String addOnName, boolean isSelected) {
+        for (AddOn addon : selectedAddOns) {
+            if (addon.getName().equals(addOnName)) {
+                addon.setSelected(isSelected);
+                return; // Encontrado y actualizado, salimos.
+            }
+        }
+    }
+
     public void setInstallationSelected(boolean isSelected) {
-        // Asumimos índice 0 es instalación
-        selectedAddOns.get(0).setSelected(isSelected);
+        updateAddOnStatus(NAME_INSTALLATION, isSelected);
     }
 
     public void setMaintenanceSelected(boolean isSelected) {
-        // Asumimos índice 1 es mantenimiento
-        selectedAddOns.get(1).setSelected(isSelected);
+        updateAddOnStatus(NAME_MAINTENANCE, isSelected);
     }
 
     public void setInsuranceSelected(boolean isSelected) {
-        // Asumimos índice 2 es seguro
-        selectedAddOns.get(2).setSelected(isSelected);
+        updateAddOnStatus(NAME_INSURANCE, isSelected);
     }
 
 

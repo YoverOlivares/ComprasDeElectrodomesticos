@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/bg_screen">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,35 +40,37 @@
                 <View
                     android:layout_width="50dp"
                     android:layout_height="5dp"
-                    android:background="#E0E0E0"
+                    android:background="@color/divider"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="20dp"
-                    android:visibility="gone"/> <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="12dp">
+                    android:visibility="gone"/>
 
-                <TextView
-                    android:id="@+id/tv_product_name"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Lavadora Samsung"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="#212121"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
 
-                <TextView
-                    android:id="@+id/tv_product_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="S/. 1100.0"
-                    android:textSize="18sp"
-                    android:textColor="#2E7D32"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_product_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Lavadora Samsung"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_title"/>
+
+                    <TextView
+                        android:id="@+id/tv_product_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S/. 1100.0"
+                        android:textSize="18sp"
+                        android:textColor="@color/price_text"
+                        android:textStyle="bold"/>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -86,7 +88,7 @@
                         android:text="Cantidad"
                         android:textSize="12sp"
                         android:layout_marginEnd="8dp"
-                        android:textColor="#757575"/>
+                        android:textColor="@color/text_secondary"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_decrease"
@@ -97,8 +99,8 @@
                         android:insetTop="0dp"
                         android:insetBottom="0dp"
                         app:cornerRadius="8dp"
-                        app:backgroundTint="#EEEEEE"
-                        android:textColor="#000000"
+                        app:backgroundTint="@color/btn_secondary_bg"
+                        android:textColor="@color/btn_secondary_text"
                         style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
                     <TextView
@@ -108,6 +110,7 @@
                         android:text="1"
                         android:textSize="16sp"
                         android:textStyle="bold"
+                        android:textColor="@color/text_title"
                         android:minWidth="25dp"
                         android:gravity="center"
                         android:layout_marginHorizontal="6dp"/>
@@ -121,18 +124,18 @@
                         android:insetTop="0dp"
                         android:insetBottom="0dp"
                         app:cornerRadius="8dp"
-                        app:backgroundTint="#EEEEEE"
-                        android:textColor="#000000"
+                        app:backgroundTint="@color/btn_secondary_bg"
+                        android:textColor="@color/btn_secondary_text"
                         style="@style/Widget.MaterialComponents.Button.TextButton"/>
                 </LinearLayout>
 
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginBottom="12dp"/>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginBottom="12dp"/>
 
                 <TextView
                     android:text="Adicionales:"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="#424242"
+                    android:textColor="@color/text_title"
                     android:layout_marginBottom="6dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -141,16 +144,27 @@
                     android:id="@+id/cb_installation"
                     android:text="Instalación a domicilio (5%)"
                     android:textSize="12sp"
+                    android:textColor="@color/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
+
                 <CheckBox
                     android:id="@+id/cb_maintenance"
                     android:text="Mantenimiento trimestral (10%)"
                     android:textSize="12sp"
+                    android:textColor="@color/text_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="12dp"/>
+                <CheckBox
+                    android:id="@+id/cb_seguro"
+                    android:text="Seguro por fallas técnicas (7%)"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" android:layout_marginVertical="12dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -194,7 +208,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
                             android:textStyle="italic"
-                            android:textColor="#0D47A1"
+                            android:textColor="@color/text_title"
                             android:visibility="gone"
                             android:text="Set de tazas"/>
                     </LinearLayout>
@@ -204,7 +218,7 @@
                     android:text="Descuento:"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="#424242"
+                    android:textColor="@color/text_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -218,6 +232,7 @@
                         android:id="@+id/rb_store_card"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/text_title"
                         android:text="Tarjeta de la tienda (10%)"
                         android:textSize="12sp"/>
 
@@ -225,6 +240,7 @@
                         android:id="@+id/rb_no_card"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/text_title"
                         android:text="Sin tarjeta (5%)"
                         android:textSize="12sp"/>
                 </RadioGroup>
